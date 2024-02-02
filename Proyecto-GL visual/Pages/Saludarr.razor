@@ -1,0 +1,27 @@
+﻿@page "/salud"
+@using Pages.Componentes
+
+
+
+<h3>¡Bienvenido al componente de saludo!</h3>
+
+<div>
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" @bind="@nombre" />
+    <button @onclick="MostrarSaludo">Mostrar Saludo</button>
+</div>
+
+@if (!string.IsNullOrEmpty(saludo))
+{
+    <p>Saludo: @saludo</p>
+}
+
+@code {
+    private string nombre = string.Empty;
+    private string saludo = string.Empty;
+
+    private void MostrarSaludo()
+    {
+        saludo = $"¡Hola, Como esta {nombre}!";
+    }
+}
